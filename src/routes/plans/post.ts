@@ -3,8 +3,7 @@ export async function postPlan(ctx: any) {
 	const {name, private: isPrivate} = ctx.request.body;
 	if (name) {
 		try {
-			console.log(ctx.userId, name, isPrivate)
-			await ctx.mysql.sproc('add-plan', [ctx.userId, name, isPrivate])
+			await ctx.mysql.sproc('add-plan', [ctx.state.user.sub, name, isPrivate])
 			ctx.status = 204;
 		} catch (e) {
 			console.error(e);

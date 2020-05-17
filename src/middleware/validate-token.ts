@@ -3,7 +3,6 @@ const jwt = require('koa-jwt');
 import config from 'config';
 
 const validateToken = () => {
-	console.log('this far')
 	const domain = config.get('auth0.domain');
 	return jwt({ 
   	secret: koaJwtSecret({
