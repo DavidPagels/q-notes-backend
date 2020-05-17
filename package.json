@@ -1,0 +1,33 @@
+{
+  "name": "q-notes-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsc && dotenv node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "@koa/cors": "^3.0.0",
+    "@types/node": "^12.12.11",
+    "auth0": "^2.25.1",
+    "config": "^3.3.1",
+    "jwks-rsa": "^1.8.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-jwt": "^3.6.0",
+    "koa-router": "^7.4.0",
+    "mysql2": "^2.0.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^3.1.0",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.2"
+  }
+}
