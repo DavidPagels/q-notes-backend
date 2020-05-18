@@ -1,6 +1,7 @@
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
 import planRoutes from './plans';
+import stepRoutes from './steps';
 import userRoutes from './users';
 import validateToken from '../middleware/validate-token';
 
@@ -12,6 +13,7 @@ export default function routes(app, mysqlConnection) {
 
 
 	planRoutes(router);
+	stepRoutes(router);
 	userRoutes(router);
 	
 	// Todo: add auth middleware

@@ -7,6 +7,6 @@ create procedure `barbecue`.`get-plan` (
 language sql
 comment 'gets a plan by id'
 begin
-	select p.id, p.name, p.private from `barbecue`.`plans` p where p.userId = inUserId and p.id = inId and p.private = 0;
+	select p.id, p.name, p.private from `barbecue`.`plans` p where p.id = inId and (p.private = 0 or p.userId = inUserId);
 end //
 delimiter ;

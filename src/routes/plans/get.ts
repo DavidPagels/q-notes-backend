@@ -5,7 +5,6 @@ export async function getPlans(ctx: any) {
 }
 
 export async function getPlan(ctx: any) {
-	const results = await ctx.mysql.sproc('get-plan', [ctx.state.user.sub, ctx.params.planId])
-	console.log(results)
+	const results = await ctx.mysql.sproc('get-plan', [ctx.state.user.sub, ctx.params.planId]);
 	ctx.body = results[0].length ? results[0][0] : {};
 }

@@ -2,8 +2,6 @@
 export async function putUser(ctx: any) {
 	const user = ctx.request.body;
 	try {
-		console.log('updating user')
-		console.log(user)
 		await ctx.mysql.sproc('upsert-user', [
 			user.sub || null, 
 			user.name || null, 
