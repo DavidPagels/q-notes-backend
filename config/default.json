@@ -1,14 +1,13 @@
 {
 	"auth0": {
-		"audience": "http://localhost:8080",
+		"audience": "https://qnotesapi.tk",
 		"domain": "dev-8bd6z-t0.auth0.com"
 	},
 	"mysql": {
 	  "host": "localhost",
-	  "user": "root",
+	  "user": "qNotes",
 	  "password": "",
 	  "database": "barbecue",
 	  "dateStrings": true
-	},
-	"port": 8080
+	}
 }
