@@ -3,32 +3,20 @@ const bodyParser = require('koa-bodyparser');
 const serve = require('koa-static');
 const mount = require('koa-mount');
 import planRoutes from './plans';
+import publicRoutes from './public';
 import stepRoutes from './steps';
 import userRoutes from './users';
+import handleAuthErrors from '../middleware/handle-auth-errors';
 import validateToken from '../middleware/validate-token';
 
 export default function routes(app, mysqlConnection) {
 	function decorateCtx(ctx, next) {
-		console.log()
 		ctx.mysql = mysqlConnection;
 		return next();
 	}
 
-	function handleAuthErrors(ctx, next) {
-		return next().catch((err) => {
-    	if (err.status === 401) {
-      	ctx.status = 401;
-      	ctx.body = {
-        	error: err.originalError ? err.originalError.message : err.message
-      	};
-    	} else {
-      	throw err;
-    	}
-		});
-	}
-
-
 	planRoutes(router);
+	publicRoutes(router);
 	stepRoutes(router);
 	userRoutes(router);
 	

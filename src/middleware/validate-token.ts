@@ -12,7 +12,7 @@ const validateToken = () => {
   	}),
   	audience: config.get('auth0.audience'),
   	issuer: `https://${domain}/` 
-	})
-}
+	}).unless({ path: [/^\/public/] });
+};
 
 export default validateToken;

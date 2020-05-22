@@ -1,8 +1,8 @@
 delimiter // 
 drop procedure if exists `barbecue`.`get-plan`//
 create procedure `barbecue`.`get-plan` (
-	in inUserId varchar(64),
-	in inId bigint unsigned
+	in inId bigint unsigned,
+	in inUserId varchar(64)
 )
 language sql
 comment 'gets a plan by id'

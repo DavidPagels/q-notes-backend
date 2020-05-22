@@ -9,5 +9,6 @@
 	  "password": "",
 	  "database": "barbecue",
 	  "dateStrings": true
-	}
+	},
+	"local": true
 }
