@@ -1,15 +1,19 @@
 {
   "name": "q-notes-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "The backend services for the q-notes React SPA",
+  "author": "David Pagels <david.a.pagels@gmail.com>",
+  "bugs": { 
+    "url" : "https://github.com/DavidPagels/q-notes-backend/issues",
+    "email" : "david.a.pagels@gmail.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
   "main": "index.ts",
   "scripts": {
     "start": "tsc && node dist/index.js",
     "start:local": "tsc && dotenv node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
