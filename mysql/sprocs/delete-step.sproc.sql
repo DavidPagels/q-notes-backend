@@ -12,7 +12,10 @@ begin
 	select p.userId into @userId from `barbecue`.`plans` p where p.id = inPlanId;
 
 	if @userId = inUserId then
-		update `barbecue`.`steps` s set deleted = 1 where s.id = inId and s.planId = inPlanId;
+		update `barbecue`.`steps` s 
+			set s.deleted = 1, s.updated = NOW() 
+			where s.id = inId 
+			and s.planId = inPlanId;
 	end if;
 end //
 delimiter ;

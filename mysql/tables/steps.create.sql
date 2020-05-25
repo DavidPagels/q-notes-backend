@@ -4,5 +4,7 @@ create table `barbecue`.`steps` (
 	`planId` bigint unsigned NOT NULL,
   `action` varchar(256) NOT NULL,
   `deleted` tinyint NOT NULL DEFAULT 0,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime DEFAULT CURRENT_TIMESTAMP,
   KEY(`planId`)
 );

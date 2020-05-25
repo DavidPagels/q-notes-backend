@@ -9,5 +9,6 @@ language sql
 comment 'adds a plan'
 begin
 	insert into `barbecue`.`plans` (userId, name, private) values (inUserId, inName, inPrivate);
+	SELECT LAST_INSERT_ID() as newPlanId;
 end //
 delimiter ;

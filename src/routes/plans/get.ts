@@ -7,7 +7,14 @@ export async function getPlans(ctx: any) {
 }
 
 export async function getPlan(ctx: any) {
-	const user = ctx.state.user || {};
-	const results = await ctx.mysql.sproc('get-plan', [ctx.params.planId, user.sub || null]);
-	ctx.body = results[0].length ? results[0][0] : {};
+	const { user = {}} = ctx.state;
+	const { planId } = ctx.params;
+	const [planResults, stepsResults] = await Promise.all([
+		ctx.mysql.sproc('get-plan', [planId, user.sub || null]),
+		ctx.mysql.sproc('get-plan-steps', [planId, user.sub || null])
+	]);
+
+	const plan = planResults[0].length ? planResults[0][0] : {};
+	plan.steps = stepsResults[0];
+	ctx.body = plan;
 }

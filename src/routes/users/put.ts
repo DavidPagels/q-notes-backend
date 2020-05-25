@@ -3,7 +3,7 @@ export async function putUser(ctx: any) {
 	const user = ctx.request.body;
 	try {
 		await ctx.mysql.sproc('upsert-user', [
-			user.sub || null, 
+			user.sub, 
 			user.name || null, 
 			user.given_name || null, 
 			user.family_name || null, 

@@ -13,5 +13,6 @@ create table `barbecue`.`users` (
   `birthdate` date,
   `zoneinfo` varchar(128),
   `locale` varchar(128),
-  `lastLogin` datetime DEFAULT CURRENT_TIMESTAMP
+  `lastLogin` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP
 );

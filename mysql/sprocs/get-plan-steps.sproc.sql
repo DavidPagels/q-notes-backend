@@ -7,7 +7,7 @@ create procedure `barbecue`.`get-plan-steps` (
 language sql
 comment 'gets steps for a given plan id'
 begin
-	select s.id, s.planId, s.action from `barbecue`.`steps` s 
+	select s.id, s.planId, s.action, s.created, s.updated from `barbecue`.`steps` s 
 		join `barbecue`.`plans` p on p.id = s.planId
 		where s.planId = inPlanId 
 		and s.deleted = 0 

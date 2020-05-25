@@ -13,7 +13,7 @@ begin
 	set inPageSize = coalesce(inPageSize, 10);
 	set offset = (inPage - 1) * inPageSize;
 
-	select p.id, p.userId, u.name as userName, p.name, p.private 
+	select p.id, p.userId, u.name as userName, p.name, p.private, p.updated, p.created 
 		from `barbecue`.`plans` p 
 		left join `barbecue`.`users` u on p.userId = u.id 
 		where (p.private = 0 or p.userId = inUserId)
