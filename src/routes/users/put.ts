@@ -9,6 +9,7 @@ export async function putUser(ctx: any) {
 			user.family_name || null, 
 			user.middle_name || null, 
 			user.nickname || null,
+			user.picture || null,
 			user.preferred_username || null,
 			user.email || null,
 			user.email_verified || null,

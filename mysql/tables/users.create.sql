@@ -6,6 +6,7 @@ create table `barbecue`.`users` (
   `lastName` varchar(128),
   `middleName` varchar(128),
   `nickname` varchar(128),
+  `picture` varchar(512),
   `preferredUserName` varchar(128),
   `email` varchar(128),
   `emailVerified` tinyint,
