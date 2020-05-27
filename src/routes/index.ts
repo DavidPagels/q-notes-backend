@@ -12,9 +12,9 @@ import userSettingsRoutes from './user-settings';
 import handleAuthErrors from '../middleware/handle-auth-errors';
 import validateToken from '../middleware/validate-token';
 
-export default function routes(app, mysqlConnection) {
+export default function routes(app, mysqlPool) {
 	function decorateCtx(ctx, next) {
-		ctx.mysql = mysqlConnection;
+		ctx.mysql = mysqlPool;
 		return next();
 	}
 

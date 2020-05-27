@@ -7,24 +7,24 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 
-async function getMySqlConnection() {
-	const sqlConnection = await mysql.createConnection(config.get('mysql'));
+async function getMySqlPool() {
+	const mysqlPool = await mysql.createPool(config.get('mysql'));
 
-	sqlConnection.sproc = async (sprocName, args) => {
+	mysqlPool.sproc = async (sprocName, args) => {
 		const wildcards = args.slice(0).fill('?').join(', ')
-		const records = await sqlConnection.execute(`CALL \`${sprocName}\` (${wildcards})`, args);
+		const records = await mysqlPool.execute(`CALL \`${sprocName}\` (${wildcards})`, args);
 		return records[0];
 	}
 
-	return sqlConnection;
+	return mysqlPool;
 }
 
 async function startServer() {
 	const app = new koa();
 	app.use(cors());
-	const sqlConnection = await getMySqlConnection()
+	const mysqlPool = await getMySqlPool()
 
-	routes(app, sqlConnection);
+	routes(app, mysqlPool);
 
 	if (config.get('local')) {
 		http.createServer(app.callback())
