@@ -7,8 +7,7 @@
 	  "host": "localhost",
 	  "user": "qNotes",
 	  "password": "",
-	  "database": "barbecue",
-	  "dateStrings": true
+	  "database": "barbecue"
 	},
 	"local": true
 }
