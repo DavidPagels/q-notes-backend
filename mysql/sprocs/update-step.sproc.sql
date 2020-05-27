@@ -2,7 +2,7 @@ delimiter //
 drop procedure if exists `barbecue`.`update-step`//
 create procedure `barbecue`.`update-step` (
 	in inPlanId bigint unsigned,
-	in inStepId bigint unsigned,
+	in inId bigint unsigned,
 	in inUserId varchar(64),
 	in inAction varchar(256)
 )
