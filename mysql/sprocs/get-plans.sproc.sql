@@ -24,14 +24,14 @@ begin
 		and p.userId = case when inFilterUserId is not null then inFilterUserId else p.userId end
 		and (p.private = 0 or p.userId = inUserId)
 		order by
-      case when inSortBy = 'created' or inSortBy = 'updated' then 1
+      case when inSortBy = '-created' or inSortBy = '-updated' then 1
       	else
       		case 
       			when inSortBy = 'created' then p.created
       			when inSortBy = 'updated' then p.updated
         	end
       	end ASC,
-      case when inSortBy = '-created' or inSortBy = '-updated' then 1
+      case when inSortBy = 'created' or inSortBy = 'updated' then 1
       	else
       		case 
       			when inSortBy = '-created' then p.created
