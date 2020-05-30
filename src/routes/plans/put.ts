@@ -1,10 +1,10 @@
 
 export async function putPlan(ctx: any) {
-	const {name, private: isPrivate} = ctx.request.body;
+	const {name, meatId, private: isPrivate} = ctx.request.body;
 	const { planId } = ctx.params;
 	const { user } = ctx.state;
 	try {
-		await ctx.mysql.sproc('update-plan', [planId, user.sub, name, isPrivate])
+		await ctx.mysql.sproc('update-plan', [planId, user.sub, name, meatId, isPrivate])
 		ctx.status = 204;
 	} catch (e) {
 		console.error(e);

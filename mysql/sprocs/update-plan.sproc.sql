@@ -4,6 +4,7 @@ create procedure `barbecue`.`update-plan` (
 	in inId bigint unsigned,
 	in inUserId varchar(64),
 	in inName varchar(128),
+	in inMeatId bigint unsigned,
 	in inPrivate tinyint
 )
 language sql
@@ -14,7 +15,7 @@ begin
 
 	if @userId = inUserId then
 		update `barbecue`.`plans` p 
-			set p.name = inName, p.private = inPrivate, p.updated = NOW()
+			set p.name = inName, p.meatId = inMeatId, p.private = inPrivate, p.updated = NOW()
 			where p.id = inId;
 	end if;
 end //

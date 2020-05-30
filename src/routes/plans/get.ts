@@ -1,8 +1,8 @@
 
 export async function getPlans(ctx: any) {
 	const user = ctx.state.user || {};
-	const { page = 1, pageSize = 10 } = ctx.request.query;
-	const results = await ctx.mysql.sproc('get-plans', [user.sub || null, page, pageSize]);
+	const { page = 1, pageSize = 10, meatId = null, userId = null, sortBy = null} = ctx.request.query;
+	const results = await ctx.mysql.sproc('get-plans', [user.sub || null, page, pageSize, meatId, userId, sortBy]);
 	ctx.body = {records: results[0], page, pageSize, totalHits: results[1][0].totalHits};
 }
 
