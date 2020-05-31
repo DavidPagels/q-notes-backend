@@ -4,7 +4,7 @@ create procedure `barbecue`.`update-step` (
 	in inPlanId bigint unsigned,
 	in inId bigint unsigned,
 	in inUserId varchar(64),
-	in inAction varchar(256)
+	in inAction text
 )
 language sql
 comment 'updates a plan step'

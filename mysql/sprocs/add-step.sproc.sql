@@ -3,7 +3,7 @@ drop procedure if exists `barbecue`.`add-step`//
 create procedure `barbecue`.`add-step` (
 	in inPlanId bigint unsigned,
 	in inUserId varchar(64),
-	in inAction varchar(256)
+	in inAction text
 )
 language sql
 comment 'adds a plan step'

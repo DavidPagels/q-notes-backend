@@ -13,4 +13,5 @@ insert into `barbecue`.`meats` (id, type) values
 	(5, 'poultry/other'),
 	(6, 'wild game'),
 	(7, 'seafood'),
-	(8, 'other');
+	(8, 'other'),
+	(9, 'project');
