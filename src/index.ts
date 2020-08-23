@@ -26,17 +26,14 @@ async function startServer() {
 
 	routes(app, mysqlPool);
 
-	if (config.get('local')) {
-		http.createServer(app.callback())
-			.listen(8080, () => console.log(JSON.stringify({message: `Listening on port 8080`})));
-	} else {
-		https.createServer({
-  		key: fs.readFileSync('/etc/letsencrypt/live/qnotesapi.tk/privkey.pem'),
-  		cert: fs.readFileSync('/etc/letsencrypt/live/qnotesapi.tk/fullchain.pem'),
-  		ca: fs.readFileSync('/etc/letsencrypt/live/qnotesapi.tk/chain.pem')
-		}, app.callback())
-			.listen(443, () => console.log(JSON.stringify({message: `Listening on port: 443`})));
-	}
+	http.createServer(app.callback())
+		.listen(8080, () => console.log(JSON.stringify({message: `Listening on port 8080`})));
+	https.createServer({
+ 		key: fs.readFileSync('/etc/letsencrypt/live/qnotesapi.tk/privkey.pem'),
+ 		cert: fs.readFileSync('/etc/letsencrypt/live/qnotesapi.tk/fullchain.pem'),
+ 		ca: fs.readFileSync('/etc/letsencrypt/live/qnotesapi.tk/chain.pem')
+	}, app.callback())
+		.listen(443, () => console.log(JSON.stringify({message: `Listening on port: 443`})));
 }
 
 startServer();
