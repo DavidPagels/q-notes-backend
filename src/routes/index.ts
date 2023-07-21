@@ -1,7 +1,7 @@
-const router = require('koa-router')();
-const bodyParser = require('koa-bodyparser');
-const serve = require('koa-static');
-const mount = require('koa-mount');
+import * as Router from 'koa-router';
+import * as bodyParser from 'koa-bodyparser';
+import * as serve from 'koa-static';
+import * as mount from 'koa-mount';
 import bugRoutes from './bugs';
 import commentRoutes from './comments';
 import planRoutes from './plans';
@@ -18,6 +18,8 @@ export default function routes(app, mysqlPool) {
 		return next();
 	}
 
+	const router = Router();
+
 	bugRoutes(router);
 	commentRoutes(router);
 	planRoutes(router);
@@ -25,7 +27,7 @@ export default function routes(app, mysqlPool) {
 	stepRoutes(router);
 	userRoutes(router);
 	userSettingsRoutes(router);
-	
+
 	app
 		.use(mount("/.well-known", serve("./.well-known")))
 		.use(bodyParser())
